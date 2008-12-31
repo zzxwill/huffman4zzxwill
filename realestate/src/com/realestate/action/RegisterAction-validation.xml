@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="name">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>用户名不可为空</message>
+		</field-validator>
+		<field-validator type="stringlength">
+		<param name="minLength">6</param>
+		<param name="maxLength">10</param>
+		<message>用户名长度应在${minLength} 到${maxLength}个字符之间 </message>
+		</field-validator>
+	</field>
+	<field name="realName">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>真实姓名户名不可为空</message>
+		</field-validator>
+		
+		
+		
+	</field>
+	<field name="password">
+	<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>密码不可为空</message>
+		</field-validator>
+		<field-validator type="stringlength">
+		<param name="minLength">6</param>
+		
+		<message>密码长度不应少于${minLength}  </message>
+		</field-validator>
+	</field>
+	<field name="repassword">
+	
+		<field-validator type="fieldexpression">
+		<param name="expression"><![CDATA[#password==#repassword)]]> </param>
+		<message>两次密码输入不一致</message>
+		</field-validator>
+	</field>
+	<field name="idnum">
+	<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>身份证不可为空</message>
+		</field-validator>
+		<field-validator type="stringlength">
+		<param name="minLength">18</param>
+		<param name="maxLength">18</param>
+		<message>身份证号长度应为${minLength}个字符  </message>
+		</field-validator>
+	</field>
+	
+    
+</validators>

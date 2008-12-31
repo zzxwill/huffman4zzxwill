@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<package name="struts" extends="jfreechart-default">
+
+
+		<!-- +++++++++++++++++++++++++++拦截器定义++++++++++++++++++++++++++++++++++ +++++++++++++-->
+		<interceptors>
+			<interceptor name="auth"
+				class="com.realestate.AuthInterceptor">
+			</interceptor>
+			<interceptor-stack name="authStack">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="auth"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="authStack"></default-interceptor-ref>
+		<global-results>
+			<result name="error" type="tiles">error</result>
+
+		</global-results>
+		<!-- ++++++++++++++++++++++++++++action定义++++++++++++++++++++++++++++++++++++++++++++++++++++++++= -->
+		<action name="go" class="com.test.action.MyAction">
+			<result name="success" type="tiles">background</result>
+		</action>
+		<action name="register"
+			class="com.realestate.action.RegisterAction">
+			<result>/index.jsp</result>
+			<result name="input">/jsp/register.jsp</result>
+		</action>
+		<action name="AjaxAtion"
+			class="com.realestate.action.AjaxAction">
+			<result name="input">/AjaxAction.jsp</result>
+		</action>
+		<action name="mytiles" class="com.test.MyTiles">
+			<result name="success" type="tiles">index</result>
+		</action>
+
+		<action name="UserListingAction"
+			class="ajaxdemo.action.UserListingAction">
+			<result>/userlisting.jsp</result>
+		</action>
+		<action name="UserDetailAction"
+			class="ajaxdemo.action.UserDetailAction">
+			<result>/userdetail.jsp</result>
+		</action>
+		<action name="search"
+			class="com.realestate.action.SearchAction">
+			<result type="tiles">searchResult</result>
+		</action>
+
+		<action name="login"
+			class="com.realestate.action.LoginAction">
+			<result type="redirect">userpage.action</result>
+			<result name="input" type="tiles">index</result>
+		</action>
+
+		<action name="userpage"
+			class="com.realestate.action.UserPageAction">
+			<result type="tiles">userPage</result>
+			
+		</action>
+
+
+		<action name="logout"
+			class="com.realestate.action.LogoutAction">
+			<result type="tiles">index</result>
+		</action>
+
+<!-- 
+		<action name="jfreechart"
+			class="com.test.action.JFreeChartTest">
+			<result type="chart">
+				<param name="height">600</param>
+				<param name="width">800</param>
+			</result>
+		</action>
+		 -->
+		 <action name="jfreechart"
+			class="com.test.action.JFreeChartTest">
+			<result type="tiles">
+				jfreechart
+			</result>
+		</action>
+		
+		<action name="sortSearch"
+			class="com.realestate.action.SortSearchAction">
+
+			<result type="tiles">sortSeach</result>
+		</action>
+
+		<!-- ++++++++++++++++++++++++++++鲍习武+++++++++++++++++++ -->
+
+		<action name="contract_details"
+			class="com.realestate.action.Contract_DetailsAction">
+			<result name="success" type="tiles">contractDetails</result>
+			<result name="error" type="tiles">error</result>
+		</action>
+		<action name="message_details"
+			class="com.realestate.action.Message_DetailsAction">
+			<result name="success" type="tiles">messageDetails</result>
+			<result name="error" type="tiles">error</result>
+		</action>
+
+		<action name="modifyestatetransfer"
+			class="com.realestate.action.ModifyEstateActionTransfer">
+			<result name="success" type="tiles">modifyEstate</result>
+			<result name="error" type="tiles">error</result>
+			<interceptor-ref name="authStack">
+				<param name="type">dev</param>
+			</interceptor-ref>
+		</action>
+
+		<action name="delestate"
+			class="com.realestate.action.DelEstateAction">
+			<result name="success" type="tiles">action_suc</result>
+			<!-- added-->
+			<interceptor-ref name="authStack">
+				<param name="type">dev</param>
+			</interceptor-ref>
+			<!-- end-->
+		</action>
+
+		<action name="addestatetransfer"
+			class="com.realestate.action.AddEstateActionTransfer">
+			<result name="success" type="tiles">
+				addestatetransfer
+			</result>
+			<!-- added-->
+			<interceptor-ref name="authStack">
+				<param name="type">dev</param>
+			</interceptor-ref>
+			<!-- end-->
+		</action>
+
+		<action name="addestate"
+			class="com.realestate.action.AddEstateAction">
+			<result name="success">action_suc</result>
+			<!-- added-->
+			<interceptor-ref name="authStack">
+				<param name="type">dev</param>
+			</interceptor-ref>
+			<!-- end-->
+		</action>
+		<action name="houseinfo"
+			class="com.realestate.action.HouseInfoAction">
+			<result name="success" type="tiles">houseinfo</result>
+		</action>
+
+		<action name="estateinfo"
+			class="com.realestate.action.EstateInfoAction">
+			<result name="success" type="tiles">estateinfo</result>
+		</action>
+
+		<action name="houselist"
+			class="com.realestate.action.HouseListAction">
+			<result name="success" type="tiles">houselist</result>
+		</action>
+
+		<action name="addhouseinfotransfer"
+			class="com.realestate.action.AddHouseInfoActionTransfer">
+			<result name="success" type="tiles">
+				addhouseinfotransfer
+			</result>
+			<!-- added-->
+			<interceptor-ref name="authStack">
+				<param name="type">dev</param>
+			</interceptor-ref>
+			<!-- end-->
+		</action>
+
+		<action name="addhouseinfo"
+			class="com.realestate.action.AddHouseInfoAction">
+			<result name="success" type="tiles">action_suc</result>
+			<!-- added-->
+			<interceptor-ref name="authStack">
+				<param name="type">dev</param>
+			</interceptor-ref>
+			<!-- end-->
+		</action>
+		<action name="modifyhouseinfotransfer"
+			class="com.realestate.action.ModifyHouseInfoActionTransfer">
+			<result name="success" type="tiles">
+				modifyhouseinfotransfer
+			</result>
+			<!-- added-->
+			<interceptor-ref name="authStack">
+				<param name="type">dev</param>
+			</interceptor-ref>
+			<!-- end-->
+		</action>
+
+		<action name="delhouseinfo"
+			class="com.realestate.action.DelHouseInfoAction">
+			<result name="success" type="tiles">action_suc</result>
+			<!-- added-->
+			<interceptor-ref name="authStack">
+				<param name="type">dev</param>
+			</interceptor-ref>
+			<!-- end-->
+		</action>
+
+		<!-- ======================end========================= -->
+		<!--+++++++++++++++++++++++ 陈君龙部分+++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+		<action name="moreEstate"
+			class="com.realestate.action.MoreEstateAction">
+			<result name="success" type="tiles">moreEstate</result>
+		</action>
+		<action name="estateDetails"
+			class="com.realestate.action.EstateDetailsAction">
+			<result name="success" type="tiles">estateDetails</result>
+		</action>
+		<action name="houseDetails"
+			class="com.realestate.action.HouseDetailsAction">
+			<result name="success" type="tiles">houseDetails</result>
+		</action>
+
+		<action name="turn" class="com.realestate.action.TurnAction">
+			<result name="usr" type="tiles">userInfo</result>
+			<result name="dev" type="tiles">developerInfo</result>
+
+		</action>
+
+
+		<action name="UserInfoAction"
+			class="com.realestate.action.UserInfoAction">
+			<result name="success">/jsp/success.jsp</result>
+			<result name="input">/jsp/userInfo.jsp</result>
+		</action>
+		<action name="DeveloperInfoAction"
+			class="com.realestate.action.DeveloperInfoAction">
+			<result name="success">/jsp/success.jsp</result>
+			<result name="input">/jsp/developerInfo.jsp</result>
+		</action>
+		<action name="ContractSignedAction"
+			class="com.realestate.action.ContractSignedAction">
+			<result name="success">/jsp/contractSigned.jsp</result>
+		</action>
+
+		<!-- 汪海洋部分 ===================================================== -->
+
+		<action name="placcardDetails"
+			class="com.realestate.action.PlacardDetailsAction">
+			<result type="tiles">placardDetails</result>
+		</action>
+
+		<action name="moreDeveloper"
+			class="com.realestate.action.MoreDeveloperAction">
+			<result name="success" type="tiles">moreDeveloper</result>
+		</action>
+
+		<action name="developerDetails"
+			class="com.realestate.action.DeveloperDetailsAction">
+			<result name="success" type="tiles">
+				developerDetails
+			</result>
+		</action>
+
+		<action name="vote4developer"
+			class="com.realestate.action.VoteAction">
+			<result name="success" type="tiles">voteSuccess</result>
+		</action>
+
+
+
+<!-- ######################################################################## -->
+		<action name="AdminLogin"
+			class="com.realestate.action.AdminLoginAction">
+			<result name="success">/jsp/manageNotice.jsp</result>
+			<result name="error">/jsp/error.jsp</result>
+			<result name="input">/jsp/adminLogin.jsp</result>
+		</action>
+		
+		<action name="AddNotice"
+			class="com.realestate.action.AddNoticeAction">
+			<result name="success">/jsp/addNoticeSuccess.jsp</result>
+			
+			<result name="input">/jsp/addNotice.jsp</result>
+		</action>
+		
+		<action name="ChangeNotice"
+			class="com.realestate.action.ChangeNoticeAction">
+			<result name="success">/jsp/changeNoticeSuccess.jsp</result>
+			
+			<result name="input">/jsp/changeNotice.jsp</result>
+		</action>
+		
+		<action name="DeleteNotice"
+			class="com.realestate.action.DeleteNoticeAction">
+			<result name="success">/jsp/deleteNoticeSuccess.jsp</result>
+			
+			<result name="error">/jsp/manageNotice.jsp</result>
+		</action>
+		
+		
+		
+	</package>
+
+</struts>
