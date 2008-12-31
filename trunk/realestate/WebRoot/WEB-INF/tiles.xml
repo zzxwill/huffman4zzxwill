@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="myapp.homepage"
+		template="/tiles/template/layout.jsp">
+		<put-attribute name="title" value="Tiles tutorial homepage"></put-attribute>
+		<put-attribute name="header" value="/tiles/header.jsp"></put-attribute>
+		<put-attribute name="menu" value="/tiles/menu.jsp"></put-attribute>
+		<put-attribute name="body" value="/tiles/cBody.jsp"></put-attribute>
+		<put-attribute name="footer" value="/tiles/footer.jsp"></put-attribute>
+	</definition>
+
+
+	<definition name="ErrorContent" template="/jsp/template/error.jsp" />
+
+
+
+	<!-- 其它Tiles组件 -->
+	<definition name=".placard" template="/jsp/placard.jsp"
+		preparer="com.realestate.tiles.PlacardPreparer" />
+	<!--公告栏控制器-->
+
+
+	<definition name=".sellSortLeft" template="/jsp/sellSortLeft.jsp"
+		preparer="com.realestate.tiles.SellSortPreparer" /><!--销售排行控制器-->
+
+
+	<definition name=".left"
+		template="/jsp/template/leftTemplate.jsp">
+		<put-attribute name="login" value="/jsp/login.jsp" />
+		<put-attribute name="placard" value=".placard" />
+		<put-attribute name="sellSortLeft" value=".sellSortLeft" /><!-- 左菜单 -->
+	</definition>
+
+	<definition name=".info" template="/jsp/info.jsp"
+		preparer="com.realestate.tiles.InfoPreparer">
+
+	</definition>
+
+	<!--页面模板-->
+	<definition name=".myLayout"
+		template="/jsp/template/pageTemplate.jsp">
+		<put-attribute name="title" value="房地产服务系统" />
+		<!--网站标题-->
+		<put-attribute name="navigation" value="/jsp/navigation.jsp" />
+		<!--导航栏-->
+		<put-attribute name="search" value="/jsp/searchBar.jsp"></put-attribute>
+		<put-attribute name="left" value=".left" />
+		<!--左菜单-->
+		<put-attribute name="content" value=".info" />
+		<!--详细内容-->
+		<put-attribute name="footer" value="/jsp/footer.jsp" />
+		<!--版权信息-->
+	</definition>
+
+
+	<!-- 主页 -->
+	<definition name="index" extends=".myLayout">
+	</definition>
+	
+	<definition name="jfreechart" extends=".myLayout">
+		<put-attribute name="content" value="/jfreechart.jsp" />
+	</definition>
+
+	<!--公告详细信息-->
+	<definition name="error" extends=".myLayout">
+		<put-attribute name="content" value="ErrorContent" />
+	</definition>
+
+
+	<!--公告详细信息-->
+	<definition name="placardDetails" extends=".myLayout">
+		<put-attribute name="content" value="/jsp/placard_details.jsp" />
+	</definition>
+	<!-- 房产详细信息-->
+	<definition name="estateDetails" extends=".myLayout">
+		<put-attribute name="content" value="/jsp/estate_details.jsp" />
+	</definition>
+
+	<!-- 套房详细信息 -->
+	<definition name="houseDetails" extends=".myLayout">
+		<put-attribute name="content" value="/jsp/house_details.jsp" />
+	</definition>
+	<!-- 搜索结果 -->
+	<definition name="searchResult" extends=".myLayout">
+		<put-attribute name="content" value="/jsp/search_details.jsp" />
+	</definition>
+
+	<!-- 个人页面 -->
+	<definition name="userPage" extends=".myLayout">
+		<put-attribute name="content" value="/jsp/userPage.jsp" />
+	</definition>
+
+	<!-- 分类检索 -->
+	<definition name="sortSeach" extends=".myLayout">
+		<put-attribute name="content"
+			value="/jsp/sort_search_details.jsp" />
+	</definition>
+
+	<!--++++++++++++++++++++++++++++++++++ 陈君龙部分+++++++++++++++++++++ -->
+	<!-- 更多楼盘信息 -->
+	<definition name="moreEstate" extends=".myLayout">
+		<put-attribute name="content" value="/jsp/moreEstate.jsp" />
+	</definition>
+
+	<definition name="estateDetails" extends=".myLayout">
+		<put-attribute name="content" value="/jsp/estate_details.jsp" />
+	</definition>
+
+	<definition name="houseDetails" extends=".myLayout">
+		<put-attribute name="content" value="/jsp/house_details.jsp" />
+	</definition>
+
+	<definition name="userInfo" extends=".myLayout">
+		<put-attribute name="content" value="/jsp/userInfo.jsp" />
+	</definition>
+
+	<definition name="developerInfo" extends=".myLayout">
+		<put-attribute name="content" value="/jsp/developerInfo.jsp" />
+	</definition>
+
+	<!-- +++++++++++++++++++ end-+++++++++++++++++++++++++++-->
+
+
+	<!-- 汪海洋部分+++++++++++++++++++++++++++++++ -->
+	<definition name="placardDetails" extends=".myLayout">
+		<put-attribute name="content" value="/jsp/placard_details.jsp" />
+	</definition>
+
+	<definition name="moreDeveloper" extends=".myLayout">
+		<put-attribute name="content" value="/jsp/moreDeveloper.jsp" />
+	</definition>
+
+	<definition name="developerDetails" extends=".myLayout">
+		<put-attribute name="content"
+			value="/jsp/developer_details.jsp" />
+	</definition>
+
+
+	<definition name="voteSuccess" extends=".myLayout">
+		<put-attribute name="content" value="/jsp/vote_success.jsp" />
+	</definition>
+	<!-- end+++++++++++++++++++++++++++++++++ -->
+
+	<!-- +++++++++++++++++++++++鲍习武部分+++++++++++++++++++++ -->
+	<definition name="contractDetails" extends=".myLayout">
+		<put-attribute name="content" value="/jsp/contract_details.jsp" />
+	</definition>
+	<definition name="messageDetails" extends=".myLayout">
+		<put-attribute name="content" value="/jsp/message_details.jsp" />
+	</definition>
+
+	<definition name="modifyEstate" extends=".myLayout">
+		<put-attribute name="content" value="/jsp/modifyestate.jsp" />
+	</definition>
+
+	<definition name="action_suc" extends=".myLayout">
+		<put-attribute name="content" value="/jsp/action_suc.jsp" />
+	</definition>
+
+	<definition name="addestatetransfer" extends=".myLayout">
+		<put-attribute name="content" value="/jsp/addestate.jsp" />
+	</definition>
+
+
+
+	<definition name="houseinfo" extends=".myLayout">
+		<put-attribute name="content" value="/jsp/houseinfo.jsp" />
+	</definition>
+
+	<definition name="estateinfo" extends=".myLayout">
+		<put-attribute name="content" value="/jsp/estateinfo.jsp" />
+	</definition>
+
+	<definition name="houselist" extends=".myLayout">
+		<put-attribute name="content" value="/jsp/houselist.jsp" />
+	</definition>
+
+	<definition name="addhouseinfotransfer" extends=".myLayout">
+		<put-attribute name="content" value="/jsp/addhouseinfo.jsp" />
+	</definition>
+
+	<definition name="modifyhouseinfotransfer" extends=".myLayout">
+		<put-attribute name="content" value="/jsp/modifyhouseinfo.jsp" />
+	</definition>
+
+
+
+	<!-- 后台管理相关定义 -->
+	<!-- 后台主页面 -->
+	<definition name=".managerLayout"
+		template="manage/template/indexTemplate.jsp">
+		<put-attribute name="title" value="房地产服务系统后台管理" />
+		<put-attribute name="banner" value="/manage/banner.jsp" />
+		<put-attribute name="left" value="/manage/left.jsp" />
+		<put-attribute name="footer" value="/jsp/footer.jsp" />
+	</definition>
+	<!-- 公告栏管理 -->
+	<definition name="placardmanage" extends=".managerLayout">
+		<put-attribute name="content"
+			value="/manage/placardManage.jsp">
+		</put-attribute>
+	</definition>
+	<!-- 注册用户管理 -->
+	<definition name="membermanage" extends=".managerLayout">
+		<put-attribute name="content"
+			value="/manage/memberManage.jsp">
+		</put-attribute>
+	</definition>
+	<!-- 房地产商管理 -->
+	<definition name="developermanage" extends=".managerLayout">
+		<put-attribute name="content"
+			value="/manage/developerManage.jsp">
+		</put-attribute>
+	</definition>
+
+</tiles-definitions>
+

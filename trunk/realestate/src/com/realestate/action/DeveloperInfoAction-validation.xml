@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="name">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>用户名不可为空</message>
+		</field-validator>
+		<field-validator type="stringlength">
+		<param name="minLength">6</param>
+		<param name="maxLength">10</param>
+		<message>用户名长度应在${minLength} 到${maxLength}个字符之间 </message>
+		</field-validator>
+	</field>
+	<field name="password">
+	<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>密码不可为空</message>
+		</field-validator>
+		<field-validator type="stringlength">
+		<param name="minLength">6</param>
+		
+		<message>密码长度不应少于${minLength}  </message>
+		</field-validator>
+	</field>
+	
+	<field name="repassword">
+		<field-validator type="fieldexpression">
+		<param name="expression"><![CDATA[(#repassword==#password)]]> </param>
+		<message>两次密码输入不一致</message>
+		</field-validator>
+	</field>
+	
+	<field name="email">
+	<field-validator type="email">
+			<message>电子邮件必须是一个合格的电子邮件地址</message>
+		</field-validator>
+	</field>
+	
+	<field name="telephone">
+	<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>联系电话不可为空</message>
+		</field-validator>
+	</field>
+    
+    <field name="address">
+	<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>地址不可为空</message>
+		</field-validator>
+	</field>
+	<field name="url">
+	<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>网址不可为空</message>
+		</field-validator>
+	</field>
+	<field name="license">
+	<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>许可证号不可为空</message>
+		</field-validator>
+		<field-validator type="stringlength">
+		<param name="minLength">11</param>
+		<param name="maxLength">11</param>
+		<message>许可证号长度应为${minLength}个字符  </message>
+		</field-validator>
+	</field>
+	<field name="companyName">
+	<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>公司名称不可为空</message>
+		</field-validator>
+	</field>
+	<field name="post">
+	<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>邮编不可为空</message>
+		</field-validator>
+	</field>
+
+</validators>

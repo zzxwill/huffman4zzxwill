@@ -1,0 +1,23 @@
+#
+#Thu Dec 25 11:43:28 CST 2008
+genBasicCompId=false
+sessionFactoryName=com.realestate.pojo.HibernateSessionFactory
+profile=
+daoSFId=
+version=3.2
+jndiPath=
+detectM2M=true
+reStrategyClass=
+springDaoFile=
+useJavaTypes=true
+keyGenerator=increment
+libInstallFolder=<no jars/zips in selected libraries>
+addLibs2Project=true
+genVersionTag=false
+sessionFactoryId=
+basePersistenceClass=
+reSettingsFile=
+configFile=/realestate/src/hibernate.cfg.xml
+createConfigFile=false
+addLibs2Classpath=true
+baseDaoClass=com.realestate.dao.BaseHibernateDAO

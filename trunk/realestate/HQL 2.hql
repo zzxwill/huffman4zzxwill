@@ -1,0 +1,1 @@
+from House h where h.estate.id=1
